@@ -5,9 +5,9 @@
 
 production:
   adapter: mysql2
-  database: redmine
+  database: redmine_production
   host: localhost
-  username: root
+  username: redmine
   password: ""
   encoding: utf8
 
@@ -15,7 +15,7 @@ development:
   adapter: mysql2
   database: redmine_development
   host: localhost
-  username: root
+  username: redmine
   password: ""
   encoding: utf8
 
@@ -26,16 +26,16 @@ test:
   adapter: mysql2
   database: redmine_test
   host: localhost
-  username: root
+  username: redmine
   password: ""
   encoding: utf8
 
 # PostgreSQL configuration example
 #production:
 #  adapter: postgresql
-#  database: redmine
+#  database: redmine_production
 #  host: localhost
-#  username: postgres
+#  username: redmine
 #  password: "postgres"
 
 # SQLite3 configuration example
@@ -46,7 +46,7 @@ test:
 # SQL Server configuration example
 #production:
 #  adapter: sqlserver
-#  database: redmine
+#  database: redmine_production
 #  host: localhost
 #  username: jenkins
 #  password: jenkins
