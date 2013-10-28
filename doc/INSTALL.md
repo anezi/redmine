@@ -1,11 +1,13 @@
-== Redmine installation
+Redmine installation
+====================
 
 Redmine - project management software
 Copyright (C) 2006-2013  Jean-Philippe Lang
 http://www.redmine.org/
 
 
-== Requirements
+Requirements
+============
 
 * Ruby 1.8.7, 1.9.2, 1.9.3 or 2.0.0
 * RubyGems
@@ -21,7 +23,8 @@ Optional:
 * SCM binaries (e.g. svn, git...), for repository browsing (must be available in PATH)
 * ImageMagick (to enable Gantt export to png images)
 
-== Installation
+Installation
+============
 
 1. Uncompress the program archive
 
@@ -87,7 +90,8 @@ Optional:
    Go to "Administration" to load the default configuration data (roles,
    trackers, statuses, workflow) and to adjust the application settings
 
-== SMTP server Configuration
+SMTP server Configuration
+=========================
 
 Copy config/configuration.yml.example to config/configuration.yml and
 edit this file to adjust your SMTP settings.
@@ -95,7 +99,8 @@ Do not forget to restart the application after any change to this file.
 
 Please do not enter your SMTP settings in environment.rb.
 
-== References
+References
+==========
 
 * http://www.redmine.org/wiki/redmine/RedmineInstall
 * http://www.redmine.org/wiki/redmine/EmailConfiguration
