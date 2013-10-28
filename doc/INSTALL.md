@@ -26,6 +26,31 @@ Optional:
 Installation
 ============
 
+## System Users
+
+Create a `redmine` user for Gitlab:
+
+    sudo adduser --disabled-login --gecos 'Redmine' redmine
+
+
+    # We'll install Redmine into home directory of the user "redmine"
+    cd /home/redmine
+
+## Clone the Source
+
+    # Clone Redmine repository
+    sudo -u redmine -H redmine clone https://github.com/anezi/redmine.git redmine
+
+    # Go to redmine dir
+    cd /home/git/redmine
+
+    # Checkout to stable release
+    sudo -u redmine -H redmine checkout 2.3-stable
+
+**Note:**
+You can change `2.3-stable` to `master` if you want the *bleeding edge* version, but never install master on a production server!
+
+
 1. Uncompress the program archive
 
 2. Create an empty utf8 encoded database: "redmine" for example
