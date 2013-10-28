@@ -39,13 +39,13 @@ Create a `redmine` user for Redmine:
 ## Clone the Source
 
     # Clone Redmine repository
-    sudo -u redmine -H redmine clone https://github.com/anezi/redmine.git redmine
+    sudo -u redmine -H git clone https://github.com/anezi/redmine.git redmine
 
     # Go to redmine dir
     cd /home/git/redmine
 
     # Checkout to stable release
-    sudo -u redmine -H redmine checkout 2.3-stable
+    sudo -u redmine -H git checkout 2.3-stable
 
 **Note:**
 You can change `2.3-stable` to `master` if you want the *bleeding edge* version, but never install master on a production server!
