@@ -55,6 +55,18 @@ You can change `2.3-stable` to `master` if you want the *bleeding edge* version,
 
 2. Create an empty utf8 encoded database: "redmine" for example
 
+## Configure the database parameters
+
+    cd /home/redmine/redmine
+
+    # Copy the example database parameters
+    sudo -u redmine -H cp config/database.yml.example config/database.yml
+
+    # If you're running Redmine with MySQL and ruby1.8, replace the adapter name
+    # with `mysql`
+    #
+    sudo -u redmine -H vim config/database.yml
+
 3. Configure the database parameters in config/database.yml
    for the "production" environment (default database is MySQL and ruby1.9)
 
