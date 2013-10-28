@@ -23,6 +23,10 @@ Optional:
 * SCM binaries (e.g. svn, git...), for repository browsing (must be available in PATH)
 * ImageMagick (to enable Gantt export to png images)
 
+
+    apt-get install imagemagick
+    apt-get install libmagickwand-dev
+
 Installation
 ============
 
@@ -116,8 +120,9 @@ Redmine supports the following databases:
     sudo -u redmine -H vim config/database.yml
 
 
-4. Install the required gems by running:
-     bundle install --without development test
+## Install the required gems by running:
+
+    sudo -u redmine -H bundle install --without development test
 
    If ImageMagick is not installed on your system, you should skip the installation
    of the rmagick gem using:
@@ -137,12 +142,16 @@ Redmine supports the following databases:
    
    Redmine stores session data in cookies by default, which requires
    a secret to be generated. Under the application main directory run:
-     rake generate_secret_token
+
+
+    sudo -u redmine -H rake generate_secret_token
 
 6. Create the database structure
    
    Under the application main directory run:
-     rake db:migrate RAILS_ENV="production"
+
+
+    sudo -u redmine -H rake db:migrate RAILS_ENV="production"
    
    It will create all the tables and an administrator account.
 
@@ -152,13 +161,20 @@ Redmine supports the following databases:
    subdirectories: files, log, tmp & public/plugin_assets.
    
    Assuming you run Redmine with a user named "redmine":
+
+
+    sudo -u redmine -H mkdir public/plugin_assets
+    
+    
      sudo chown -R redmine:redmine files log tmp public/plugin_assets
      sudo chmod -R 755 files log tmp public/plugin_assets
 
 8. Test the installation by running the WEBrick web server
    
    Under the main application directory run:
-     ruby script/rails server -e production
+
+
+    sudo -u redmine -H ruby script/rails server -e production
    
    Once WEBrick has started, point your browser to http://localhost:3000/
    You should now see the application welcome page.
