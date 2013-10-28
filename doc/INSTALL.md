@@ -41,8 +41,10 @@ Create a `redmine` user for Redmine:
     # Clone Redmine repository
     sudo -u redmine -H git clone https://github.com/anezi/redmine.git redmine
 
+
     # Go to redmine dir
-    cd /home/git/redmine
+    cd /home/redmine/redmine
+
 
     # Checkout to stable release
     sudo -u redmine -H git checkout 2.3-stable
