@@ -28,7 +28,7 @@ Installation
 
 ## System Users
 
-Create a `redmine` user for Gitlab:
+Create a `redmine` user for Redmine:
 
     sudo adduser --disabled-login --gecos 'Redmine' redmine
 
