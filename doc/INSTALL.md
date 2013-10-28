@@ -53,8 +53,6 @@ Create a `redmine` user for Redmine:
 You can change `2.3-stable` to `master` if you want the *bleeding edge* version, but never install master on a production server!
 
 
-1. Uncompress the program archive
-
 2. Create an empty utf8 encoded database: "redmine" for example
 
 3. Configure the database parameters in config/database.yml
