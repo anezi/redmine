@@ -52,8 +52,55 @@ Create a `redmine` user for Redmine:
 **Note:**
 You can change `2.3-stable` to `master` if you want the *bleeding edge* version, but never install master on a production server!
 
+# Setup Database
 
-2. Create an empty utf8 encoded database: "redmine" for example
+Redmine supports the following databases:
+
+* MySQL (preferred)
+* PostgreSQL
+
+## MySQL
+
+    # Install the database packages
+    sudo apt-get install -y mysql-server mysql-client libmysqlclient-dev
+
+    # Pick a database root password (can be anything), type it and press enter
+    # Retype the database root password and press enter
+
+    # Secure your installation.
+    sudo mysql_secure_installation
+    
+    # Login to MySQL
+    mysql -u root -p
+
+    # Type the database root password
+
+    # Create a user for Redmine
+    # do not type the 'mysql>', this is part of the prompt
+    # change $password in the command below to a real password you pick
+    mysql> CREATE USER 'redmine'@'localhost' IDENTIFIED BY '$password';
+
+    # Create the Redmine production database
+    mysql> CREATE DATABASE IF NOT EXISTS `redmine_production` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`;
+
+    # Grant the Redmine user necessary permissions on the table.
+    mysql> GRANT SELECT, LOCK TABLES, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER ON `redmine_production`.* TO 'redmine'@'localhost';
+
+    # Quit the database session
+    mysql> \q
+
+    # Try connecting to the new database with the new user
+    sudo -u redmine -H mysql -u redmine -p -D redmine_production
+
+    # Type the password you replaced $password with earlier
+
+    # You should now see a 'mysql>' prompt
+
+    # Quit the database session
+    mysql> \q
+
+    # You are done installing the database and can continue the installation.
+
 
 ## Configure the database parameters
 
@@ -62,16 +109,12 @@ You can change `2.3-stable` to `master` if you want the *bleeding edge* version,
     # Copy the example database parameters
     sudo -u redmine -H cp config/database.yml.example config/database.yml
 
+    # for the "production" environment (default database is MySQL and ruby1.9)
     # If you're running Redmine with MySQL and ruby1.8, replace the adapter name
     # with `mysql`
     #
     sudo -u redmine -H vim config/database.yml
 
-3. Configure the database parameters in config/database.yml
-   for the "production" environment (default database is MySQL and ruby1.9)
-
-   If you're running Redmine with MySQL and ruby1.8, replace the adapter name
-   with `mysql`
 
 4. Install the required gems by running:
      bundle install --without development test
