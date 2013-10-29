@@ -39,6 +39,23 @@ check_pids(){
   fi
 }
 
+## Called when we have started the two processes and are waiting for their pid files.
+wait_for_pids(){
+  # We are sleeping a bit here
+  i=0;
+  while [ ! -f $web_server_pid_path ]; do
+    sleep 0.1;
+    i=$((i+1))
+    if [ $((i%10)) = 0 ]; then
+      echo -n "."
+    elif [ $((i)) = 301 ]; then
+      echo "Waited 30s for the processes to write their pids, something probably went wrong."
+      exit 1;
+    fi
+  done
+  echo
+}
+
 # We use the pids in so many parts of the script it makes sense to always check them.
 # Only after start() is run should the pids change.
 check_pids
