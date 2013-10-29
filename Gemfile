@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Application server
+gem "unicorn", '~> 4.6.3', group: :unicorn
+
 gem "rails", "3.2.13"
 gem "jquery-rails", "~> 2.0.2"
 gem "coderay", "~> 1.0.9"
