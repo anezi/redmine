@@ -90,7 +90,7 @@ module Redmine
         menu_items_for(menu, project) do |node|
           links << render_menu_node(node, project)
         end
-        links.empty? ? nil : content_tag('ul', links.join("\n").html_safe)
+        links.empty? ? nil : content_tag('ul', links.join("\n").html_safe, classs: 'nav nav-pills')
       end
 
       def render_menu_node(node, project=nil)
