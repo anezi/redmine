@@ -19,13 +19,11 @@
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
   </head>
   <body class="<%=h body_css_classes %>">
-    <nav class="navbar navbar-inverse" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <%= render_menu :top_menu if User.current.logged? || !Setting.login_required? -%>
-        </div><!-- /.navbar-collapse -->
-      </div> <!-- /.container -->
-    </nav>
+    <div class="container">
+      <div class="navbar-header">
+        <%= render_menu :top_menu if User.current.logged? || !Setting.login_required? -%>
+      </div><!-- /.navbar-collapse -->
+    </div> <!-- /.container -->
     <div id="wrapper">
     <div id="wrapper2">
     <div id="wrapper3">
