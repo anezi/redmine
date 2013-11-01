@@ -19,17 +19,30 @@
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
   </head>
   <body class="<%=h body_css_classes %>">
-    <div class="container">
-      <div class="navbar-header">
-        <%= render_bt_menu :top_menu if User.current.logged? || !Setting.login_required? -%>
-      </div><!-- /.navbar-collapse -->
-    </div> <!-- /.container -->
+
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="/mine" class="navbar-brand">aneziMine</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <%= render_bt_menu :top_menu if User.current.logged? || !Setting.login_required? -%>
+          <%= render_btr_menu :account_menu -%>
+        </div>
+      </div>
+    </div>
+
     <div id="wrapper">
     <div id="wrapper2">
     <div id="wrapper3">
     <div id="top-menu">
     <div id="account">
-        <%= render_btr_menu :account_menu -%>
+        
     </div>
     <%= content_tag('div', "#{l(:label_logged_as)} #{link_to_user(User.current, :format => :username)}".html_safe, :id => 'loggedas') if User.current.logged? %>
 </div>
