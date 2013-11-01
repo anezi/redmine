@@ -109,6 +109,14 @@ module Redmine
         links.empty? ? nil : content_tag('ul', links.join("\n").html_safe, class: 'nav navbar-nav navbar-right')
       end
 
+      def render_dropdown_menu(menu, project=nil)
+        links = []
+        menu_items_for(menu, project) do |node|
+          links << render_menu_node(node, project)
+        end
+        links.empty? ? nil : content_tag('ul', links.join("\n").html_safe, class: 'dropdown')
+      end
+
       def render_menu_node(node, project=nil)
         if node.children.present? || !node.child_menus.nil?
           return render_menu_node_with_children(node, project)
