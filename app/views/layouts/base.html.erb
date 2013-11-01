@@ -32,8 +32,16 @@
         </div>
         <div class="navbar-collapse collapse" id="navbar-main">
           <%= render_bt_menu :top_menu if User.current.logged? || !Setting.login_required? -%>
-          <%= render_btr_menu :account_menu -%>
-          <%= content_tag('div', "#{l(:label_logged_as)} #{link_to_user(User.current, :format => :username)}".html_safe, :id => 'loggedas') if User.current.logged? %>
+          <% if User.current.logged? %>
+            <li class="dropdown">
+              <a href="javscript:;" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="icon-user"></i> 
+                <%= "#{link_to_user(User.current, :format => :username)}".html_safe %>
+                <b class="caret"></b>
+              </a>
+              <%= render_dropdown_menu :account_menu -%>
+            </li>
+          <% end %>
         </div>
       </div>
     </div>
