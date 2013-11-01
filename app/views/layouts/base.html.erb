@@ -28,14 +28,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">aneziMINE</a>
         </div>
         <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
           <%= render_bt_menu :top_menu if User.current.logged? || !Setting.login_required? -%>
           <%= render_btr_menu :account_menu -%>
           <%= "#{link_to_user(User.current, :format => :username)}".html_safe %>
