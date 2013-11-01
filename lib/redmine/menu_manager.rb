@@ -90,7 +90,23 @@ module Redmine
         menu_items_for(menu, project) do |node|
           links << render_menu_node(node, project)
         end
-        links.empty? ? nil : content_tag('ul', links.join("\n").html_safe, class: 'nav nav-pills')
+        links.empty? ? nil : content_tag('ul', links.join("\n").html_safe)
+      end
+
+      def render_bt_menu(menu, project=nil)
+        links = []
+        menu_items_for(menu, project) do |node|
+          links << render_menu_node(node, project)
+        end
+        links.empty? ? nil : content_tag('ul', links.join("\n").html_safe, class: 'nav navbar-nav')
+      end
+
+      def render_btr_menu(menu, project=nil)
+        links = []
+        menu_items_for(menu, project) do |node|
+          links << render_menu_node(node, project)
+        end
+        links.empty? ? nil : content_tag('ul', links.join("\n").html_safe, class: 'nav navbar-nav navbar-right')
       end
 
       def render_menu_node(node, project=nil)
