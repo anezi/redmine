@@ -37,7 +37,7 @@
             <li><a href="#contact">Contact</a></li>
           </ul>
           <%= render_bt_menu :top_menu if User.current.logged? || !Setting.login_required? -%>
-          <%= render_dropdown_menu :account_menu -%>
+          <%= render_btr_menu :account_menu -%>
           <%= "#{link_to_user(User.current, :format => :username)}".html_safe %>
         </div><!-- /.nav-collapse -->
       </div><!-- /.container -->
