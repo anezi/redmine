@@ -33,19 +33,14 @@
         <div class="navbar-collapse collapse" id="navbar-main">
           <%= render_bt_menu :top_menu if User.current.logged? || !Setting.login_required? -%>
           <%= render_btr_menu :account_menu -%>
+          <%= content_tag('div', "#{l(:label_logged_as)} #{link_to_user(User.current, :format => :username)}".html_safe, :id => 'loggedas') if User.current.logged? %>
         </div>
       </div>
     </div>
 
     <div id="wrapper">
-    <div id="wrapper2">
-    <div id="wrapper3">
-    <div id="top-menu">
-    <div id="account">
-        
-    </div>
-    <%= content_tag('div', "#{l(:label_logged_as)} #{link_to_user(User.current, :format => :username)}".html_safe, :id => 'loggedas') if User.current.logged? %>
-</div>
+      <div id="wrapper2">
+      <div id="wrapper3">
 
 <div id="header">
     <% if User.current.logged? || !Setting.login_required? %>
